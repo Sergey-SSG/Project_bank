@@ -1,14 +1,11 @@
-from src.masks import get_mask_card_number, get_mask_account
-
-
+from src.masks import get_mask_account, get_mask_card_number
 
 if __name__ == "__main__":
 
-# Пример использования:
+    # Пример использования:
     print(get_mask_account(73654108430135874305))
-# выведет **4305
+    # выведет **4305
 
-# Пример использования:
+    # Пример использования:
     print(get_mask_card_number(7000792289606361))
-# Должно вывести: 7000 79** **** 6361
-
+    # Должно вывести: 7000 79** **** 6361
