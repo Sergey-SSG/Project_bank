@@ -52,9 +52,9 @@ if __name__ == "__main__":
         "Visa Gold 5999414228426353",
         "Счет 73654108430135874305",
     ]
-for cards in cards_nums:
-    print(mask_account_card(cards))
+    for cards in cards_nums:
+        print(mask_account_card(cards))
 
-    # Дата
-    print(get_date("2024-03-11T02:26:18.671407"))
-    # Должно вывести: "11.03.2024"
+        # Дата
+        print(get_date("2024-03-11T02:26:18.671407"))
+        # Должно вывести: "11.03.2024"
