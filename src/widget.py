@@ -1,4 +1,4 @@
-from black import datetime, replace
+from black import datetime
 
 from src.masks import get_mask_account, get_mask_card_number
 
@@ -7,7 +7,7 @@ def mask_account_card(name_card_account: str) -> str:
     """Функция mask_account_card принимает на вход название карты или счет
     и выводит название и номер карты"""
     if "Счет" in name_card_account:
-        number = int(name_card_account.replace("Счет", "").strip())
+        number = name_card_account.replace("Счет", "").strip()
         return "Счет " + get_mask_account(number)
     else:  # Maestro 7000792289606361"
         numbers = get_mask_card_number(name_card_account[-16:])

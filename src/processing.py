@@ -1,15 +1,15 @@
 from datetime import datetime
+from typing import Any
 
-from typing import List, Optional, Tuple
 
-def filter_by_state(data: list[dict], state="EXECUTED") -> list[dict]:
+def filter_by_state(data: Any, state: str = "EXECUTED") -> list[dict]:
     """Функция ринимает список словарей и опционально значение для ключа state
     (по умолчанию 'EXECUTED'). Функция возвращает новый список словарей, содержащий только те словари,
     у которых ключ state соответствует указанному значению"""
     return [item for item in data if item.get("state") == state]
 
 
-def sort_by_date(data: list[dict], descending=True) -> list[dict]:
+def sort_by_date(data: Any, descending: bool = True) -> list[dict]:
     """Функция принимает список словарей и необязательный параметр,
     задающий порядок сортировки (по умолчанию — убывание)"""
     return sorted(

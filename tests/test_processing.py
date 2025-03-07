@@ -3,10 +3,11 @@ import pytest
 from src.processing import filter_by_state, sort_by_date
 
 
-def test_filter_by_state():
+def test_filter_by_state() -> None:
     assert filter_by_state([], "") == []
     # with pytest.raises(ValueError):
     #     filter_by_state('', '') == []
+
 
 @pytest.mark.parametrize(
     "value, expected",
@@ -31,7 +32,7 @@ def test_filter_by_state_(value, expected):
     assert filter_by_state(value) == expected
 
 
-def test_sort_by_date():
+def test_sort_by_date() -> None:
     assert sort_by_date([], 0) == []
     # with pytest.raises(ValueError):
     #     sort_by_date('', 0) == []
