@@ -1,3 +1,5 @@
+import pytest
+
 from src.generators import card_number_generator, filter_by_currency, transaction_descriptions
 
 transactions = [
@@ -78,6 +80,12 @@ def test_transaction_descriptions() -> None:
     assert next(generator) == "Перевод со счета на счет"
     assert next(generator) == "Перевод с карты на карту"
     assert next(generator) == "Перевод организации"
+
+
+def test_transaction_descriptions_(transactions, descriptions) -> None:
+    generator = transaction_descriptions(transactions)
+    for description in descriptions:
+        assert next(generator) == description
 
 
 def test_card_number_generator() -> None:
