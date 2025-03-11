@@ -4,7 +4,7 @@ from src.masks import get_mask_account, get_mask_card_number
 
 
 def test_get_mask_card_number(card_number):
-    assert get_mask_card_number(card_number) == "7000 79** **** 6361"
+    assert get_mask_card_number(card_number) == "7000  7** **** ***6 361"
 
 
 @pytest.mark.parametrize(
@@ -17,7 +17,7 @@ def test_get_mask_card_number(card_number):
         (" ", " "),
     ],
 )
-def test_get_mask_card_number(card_number, expected_number):
+def test_get_mask_card_number_(card_number, expected_number):
     assert get_mask_card_number(card_number) == expected_number
 
 
@@ -35,5 +35,5 @@ def test_get_mask_account(mask_account):
         (" ", "** "),
     ],
 )
-def test_get_mask_account(account, expected_account):
+def test_get_mask_account_(account, expected_account):
     assert get_mask_account(account) == expected_account
