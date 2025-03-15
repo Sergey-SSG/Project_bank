@@ -2,6 +2,7 @@ import pytest
 
 from src.decorators import log
 
+
 # Тесты
 @log()
 def successful_function(x, y):
