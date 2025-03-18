@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 load_dotenv(".env")
 
 API_URL = "https://api.apilayer.com/exchangerates_data"
-API_KEY = os.getenv("API_KEY")
+headers = {"apikey": os.getenv("API_KEY")}
 
 
 def convert_to_rub(amount, currency: dict) -> float:
@@ -16,10 +16,12 @@ def convert_to_rub(amount, currency: dict) -> float:
     if currency == "RUB":
         return float(amount)
 
-    response = requests.get(f"{API_URL}/latest?base={currency}&symbols=RUB", headers={"apikey": API_KEY})
+    if currency in ["USD", "EUR"]:
 
-    if response.status_code != 200:
-        raise Exception("Error fetching exchange rates")
+        response = requests.get(f"{API_URL}/convert?from={currency}&to=RUB&amount={amount}", headers=headers)
 
-    rates = response.json()
-    return float(amount) * rates["rates"]["RUB"]
+        response.raise_for_status()
+        conversion_data = response.json()
+        return float(conversion_data["result"])
+
+    return float(amount)

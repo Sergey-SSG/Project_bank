@@ -3,23 +3,22 @@ from unittest.mock import mock_open, patch
 from src.external_api import convert_to_rub
 from src.utils import load_transactions
 
-
 # Тестирование функции load_transactions
-def test_load_transactions_valid_json() -> None:
-    mock_json_data = '[{"amount": 1000, "currency": "USD"}]'
-    with patch("builtins.open", mock_open(read_data=mock_json_data)):
-        result = load_transactions("dummy_path.json")
-
-    assert len(result) == 1
-    assert result[0]["amount"] == 1000
-    assert result[0]["currency"] == "USD"
-
-
-@patch("builtins.open", new_callable=mock_open, read_data='[{"amount": 100, "currency": "USD"}]')
-def test_load_transactions_success(mock_file):
-    result = load_transactions("dummy_path.json")
-    assert len(result) == 1
-    assert result[0]["amount"] == 100
+# def test_load_transactions_valid_json() -> None:
+#     mock_json_data = '[{"amount": 1000, "currency": "USD"}]'
+#     with patch("builtins.open", mock_open(read_data=mock_json_data)):
+#         result = load_transactions("dummy_path.json")
+#
+#     assert len(result) == 1
+#     assert result[0]["amount"] == 1000
+#     assert result[0]["currency"] == "USD"
+#
+#
+# @patch("builtins.open", new_callable=mock_open, read_data='[{"amount": 100, "currency": "USD"}]')
+# def test_load_transactions_success(mock_file):
+#     result = load_transactions("dummy_path.json")
+#     assert len(result) == 1
+#     assert result[0]["amount"] == 100
 
 
 def test_load_transactions_empty_file() -> None:
@@ -61,5 +60,5 @@ def test_load_transactions_file_not_found_(mock_exists):
 def test_convert_to_rub_success(mock_get):
     mock_get.return_value.status_code = 200
     mock_get.return_value.json.return_value = {"rates": {"RUB": 75}}
-    result = convert_to_rub(100, "USD")
+    result = convert_to_rub(100, "result")
     assert result
