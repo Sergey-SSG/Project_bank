@@ -1,6 +1,0 @@
-Starting my_function
-my_function ok
-Starting my_function
-my_function ok
-Starting my_function
-my_function ok

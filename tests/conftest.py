@@ -93,3 +93,9 @@ def transactions():
 def capsys(capfd):
     """Используем встроенную фикстуру capsys для перехвата вывода."""
     yield capfd
+
+
+# Фикстура вход транзакцию и возвращает сумму транзакции
+@pytest.fixture
+def mock_get(capfd):
+    yield capfd

@@ -1,7 +1,9 @@
 from src.decorators import log
+from src.external_api import convert_to_rub
 from src.generators import card_number_generator, filter_by_currency, transaction_descriptions
 from src.masks import get_mask_account, get_mask_card_number
 from src.processing import filter_by_state, sort_by_date
+from src.utils import load_transactions
 # from src.widget import get_date, mask_account_card
 from src.widget_variant_2 import get_date, mask_account_card
 
@@ -114,3 +116,15 @@ if __name__ == "__main__":
 
     print("\nMy_sum:")
     print(my_function(1, 2))
+
+    # Пример использования:
+    print("\nload_transactions:", load_transactions("data/operations.json"))
+    transactions = load_transactions("data/operations.json")
+    if transactions:
+        print(f"\nLoaded {len(transactions)} transactions.")
+    else:
+        print("No transactions loaded.")
+
+    # Пример использования:
+    print("\nconvert_eur_rub:", convert_to_rub("100", "EUR"), "rub.")
+    print("\nconvert_usd_rub:", convert_to_rub("100", "USD"), "rub.")
