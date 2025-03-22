@@ -1,11 +1,30 @@
+import logging
+
 from src.decorators import log
 from src.external_api import convert_to_rub
 from src.generators import card_number_generator, filter_by_currency, transaction_descriptions
 from src.masks import get_mask_account, get_mask_card_number
 from src.processing import filter_by_state, sort_by_date
 from src.utils import load_transactions
+
 # from src.widget import get_date, mask_account_card
 from src.widget_variant_2 import get_date, mask_account_card
+
+logger = logging.getLogger("main")
+logger.setLevel(logging.INFO)
+file_handler = logging.FileHandler("logs/main.log", encoding="utf-8")
+file_formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+file_handler.setFormatter(file_formatter)
+logger.addHandler(file_handler)
+
+# logging.basicConfig(
+#     filename='logs/main.log', encoding='utf-8',
+#     filemode='w',
+#     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+#     level=logging.INFO
+# )
+#
+# logger = logging.getLogger('main')
 
 if __name__ == "__main__":
 
@@ -121,9 +140,11 @@ if __name__ == "__main__":
     print("\nload_transactions:", load_transactions("data/operations.json"))
     transactions = load_transactions("data/operations.json")
     if transactions:
+        logger.info(f"Загружено {len(transactions)} транзакций.")
         print(f"\nLoaded {len(transactions)} transactions.")
     else:
         print("No transactions loaded.")
+        logger.warning("Транзакции не были загружены.")
 
     # Пример использования:
     print("\nconvert_eur_rub:", convert_to_rub("100", "EUR"), "rub.")
