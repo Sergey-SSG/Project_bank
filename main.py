@@ -137,7 +137,7 @@ if __name__ == "__main__":
     print(my_function(1, 2))
 
     # Пример использования:
-    print("\nload_transactions:", load_transactions("data/operations.json"))
+    # print("\nload_transactions:", load_transactions("data/operations.json"))
     transactions = load_transactions("data/operations.json")
     if transactions:
         logger.info(f"Загружено {len(transactions)} транзакций.")
@@ -147,8 +147,9 @@ if __name__ == "__main__":
         logger.warning("Транзакции не были загружены.")
 
     # Пример использования:
-    print("\nconvert_eur_rub:", convert_to_rub("100", "EUR"), "rub.")
-    print("\nconvert_usd_rub:", convert_to_rub("100", "USD"), "rub.")
+    # Перестал работать бесплатный API
+    # print("\nconvert_eur_rub:", convert_to_rub("100", "EUR"), "rub.")
+    # print("\nconvert_usd_rub:", convert_to_rub("100", "USD"), "rub.")
 
     # Пример использования:
     csv_file_path = "src/transactions.csv"
@@ -157,9 +158,9 @@ if __name__ == "__main__":
     # Чтение данных из CSV
     csv_data = read_csv_file(csv_file_path)
     if csv_data is not None:
-        print(csv_data.head())  # Вывод первых 5 строк
+        print(csv_data)
     print("\n")
     # Чтение данных из XLSX
     xlsx_data = read_xlsx_file(xlsx_file_path)
     if xlsx_data is not None:
-        print(xlsx_data.head())  # Вывод первых 5 строк
+        print(xlsx_data)
