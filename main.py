@@ -1,12 +1,12 @@
 import logging
 
+from src.csv_xlsx_file import read_csv_file, read_xlsx_file
 from src.decorators import log
 from src.external_api import convert_to_rub
 from src.generators import card_number_generator, filter_by_currency, transaction_descriptions
 from src.masks import get_mask_account, get_mask_card_number
 from src.processing import filter_by_state, sort_by_date
 from src.utils import load_transactions
-
 # from src.widget import get_date, mask_account_card
 from src.widget_variant_2 import get_date, mask_account_card
 
@@ -149,3 +149,17 @@ if __name__ == "__main__":
     # Пример использования:
     print("\nconvert_eur_rub:", convert_to_rub("100", "EUR"), "rub.")
     print("\nconvert_usd_rub:", convert_to_rub("100", "USD"), "rub.")
+
+    # Пример использования:
+    csv_file_path = "src/transactions.csv"
+    xlsx_file_path = "src/transactions_excel.xlsx"
+    print("\n")
+    # Чтение данных из CSV
+    csv_data = read_csv_file(csv_file_path)
+    if csv_data is not None:
+        print(csv_data.head())  # Вывод первых 5 строк
+    print("\n")
+    # Чтение данных из XLSX
+    xlsx_data = read_xlsx_file(xlsx_file_path)
+    if xlsx_data is not None:
+        print(xlsx_data.head())  # Вывод первых 5 строк
