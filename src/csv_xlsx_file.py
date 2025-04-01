@@ -1,9 +1,7 @@
-import json
-
 import pandas as pd
 
 
-def read_csv_file(file_path):
+def read_csv_file(file_path: str) -> None:
     """Считывает финансовые операции из CSV-файла."""
     try:
         data = pd.read_csv(file_path)
@@ -14,7 +12,7 @@ def read_csv_file(file_path):
         return None
 
 
-def read_xlsx_file(file_path):
+def read_xlsx_file(file_path: str) -> None:
     """Считывает финансовые операции из XLSX-файла и возвращает список словарей"""
 
     try:
@@ -24,6 +22,7 @@ def read_xlsx_file(file_path):
     except Exception as e:
         print(f"Ошибка при чтении файла {file_path}: {e}")
         return None
+
 
 if __name__ == '__main__':
     csv_file_path = "transactions.csv"

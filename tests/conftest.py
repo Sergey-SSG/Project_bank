@@ -99,3 +99,16 @@ def capsys(capfd):
 @pytest.fixture
 def mock_get(capfd):
     yield capfd
+
+
+# Фикстура модуля transaction.py
+@pytest.fixture
+def TRANSACTIONS():
+    return [
+        {'id': 1, 'description': 'Покупка в магазине "Пятерочка"'},
+        {'id': 2, 'description': 'Оплата интернета'},
+        {'id': 3, 'description': 'Пополнение счета'},
+        {'id': 4, 'description': 'Перевод другу'},
+        {'id': 5, 'description': 'ПОКУПКА онлайн'},  # Тест на регистронезависимость
+        {'id': 6},  # Тест на отсутствие description
+    ]
