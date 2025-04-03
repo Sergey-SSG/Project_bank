@@ -1,7 +1,11 @@
-2025-03-25 22:36:13,973 - masks - DEBUG - Получен номер счета: 73654108430135874305
-2025-03-25 22:36:13,973 - masks - INFO - Замаскированный номер счета: 4305
-2025-03-25 22:36:13,973 - masks - DEBUG - Получен номер: 16
-2025-03-25 22:36:13,973 - masks - INFO - Замаскированный номер карты: ['7000', '79**', '****', '6361']
-2025-03-25 22:36:13,978 - utils - INFO - Загрузка транзакций из файла: data/operations.json
-2025-03-25 22:36:13,979 - utils - INFO - Файл data/operations.json успешно прочитан и содержит список транзакций.
-2025-03-25 22:36:13,979 - main - INFO - Загружено 101 транзакций.
+2025-04-01 11:10:21,266 - masks - DEBUG - Получен номер счета: 73654108430135874305
+2025-04-01 11:10:21,266 - masks - INFO - Замаскированный номер счета: 4305
+2025-04-01 11:10:21,267 - masks - DEBUG - Получен номер: 16
+2025-04-01 11:10:21,267 - masks - INFO - Замаскированный номер карты: ['7000', '79**', '****', '6361']
+2025-04-01 11:10:21,282 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.apilayer.com:443
+2025-04-01 11:10:21,973 - urllib3.connectionpool - DEBUG - https://api.apilayer.com:443 "GET /exchangerates_data/convert?from=EUR&to=RUB&amount=100 HTTP/1.1" 200 None
+2025-04-01 11:10:21,977 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.apilayer.com:443
+2025-04-01 11:10:22,589 - urllib3.connectionpool - DEBUG - https://api.apilayer.com:443 "GET /exchangerates_data/convert?from=USD&to=RUB&amount=100 HTTP/1.1" 200 None
+2025-04-01 11:10:22,598 - utils - INFO - Загрузка транзакций из файла: data/operations.json
+2025-04-01 11:10:22,600 - utils - INFO - Файл data/operations.json успешно прочитан и содержит список транзакций.
+2025-04-01 11:10:22,600 - main - INFO - Загружено 101 транзакций.
