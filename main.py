@@ -220,8 +220,8 @@ if __name__ == "__main__":
     #
     # # Пример использования:
     # # Перестал работать бесплатный API
-    # print("\nconvert_eur_rub:", convert_to_rub("100", "EUR"), "rub.")
-    # print("\nconvert_usd_rub:", convert_to_rub("100", "USD"), "rub.")
+    print("\nconvert_eur_rub:", convert_to_rub("100", "EUR"), "rub.")
+    print("\nconvert_usd_rub:", convert_to_rub("100", "USD"), "rub.")
     #
     # # Пример использования:
     # # print("\nload_transactions:", load_transactions("data/operations.json"))
